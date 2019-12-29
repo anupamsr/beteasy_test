@@ -4,3 +4,5 @@
 bin/
 obj/
 .vs/
+dotnet-code-challenge/obj/
+dotnet-code-challenge.Test/obj/
