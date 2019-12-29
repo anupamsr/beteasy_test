@@ -62,7 +62,7 @@ namespace dotnet_code_challenge
         {
             public string FixtureName { get; set; }
             public string Id { get; set; }
-            public DateTime StartTime { get; set; }
+            public string StartTime { get; set; }
             public int Sequence { get; set; }
             public Tags Tags { get; set; }
             public List<Market> Markets { get; set; }
@@ -72,7 +72,7 @@ namespace dotnet_code_challenge
         public class Root
         {
             public string FixtureId { get; set; }
-            public DateTime Timestamp { get; set; }
+            public string Timestamp { get; set; }
             public RawData RawData { get; set; }
         }
     }
