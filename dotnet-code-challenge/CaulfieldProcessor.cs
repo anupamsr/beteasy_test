@@ -14,10 +14,10 @@ namespace dotnet_code_challenge
             {
                 try
                 {
-                    XmlSerializer mySerializer = new XmlSerializer(typeof(CaulfieldFeed.Meeting));
                     using (TextReader reader = new StringReader(content))
                     {
-                        data = (CaulfieldFeed.Meeting)mySerializer.Deserialize(reader);
+                        XmlSerializer serializer = new XmlSerializer(typeof(CaulfieldFeed.Meeting));
+                        data = (CaulfieldFeed.Meeting)serializer.Deserialize(reader);
                         return true;
                     }
                 }

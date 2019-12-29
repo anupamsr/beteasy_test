@@ -6,7 +6,7 @@
         {
             public int Id;
             public string Name;
-            public float Price;
+            public double Price;
 
             public override string ToString()
             {
