@@ -19,7 +19,7 @@ namespace dotnet_code_challenge
                 var price_sorted_horses = feed.GetPriceSortedHorseList();
                 foreach (Horse horse in price_sorted_horses)
                 {
-                    Console.WriteLine(horse);
+                    Console.WriteLine(horse.Name); // Print only horse name
                 }
             }
 
