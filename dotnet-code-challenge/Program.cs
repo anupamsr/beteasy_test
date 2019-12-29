@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace dotnet_code_challenge
 {
-    partial class Program
+    class Program
     {
         public class UriProcessor
         {

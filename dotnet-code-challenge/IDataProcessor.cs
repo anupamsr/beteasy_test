@@ -2,12 +2,9 @@
 
 namespace dotnet_code_challenge
 {
-    partial class Program
+    public interface IDataProcessor
     {
-        public interface IDataProcessor
-        {
-            bool Load(in string resource);
-            Dictionary<int, Horse> GetHorses();
-        }
+        bool Load(in string resource);
+        Dictionary<int, Horse> GetHorses();
     }
 }
