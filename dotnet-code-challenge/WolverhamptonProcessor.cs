@@ -35,10 +35,12 @@ namespace dotnet_code_challenge
                 {
                     foreach (WolverhamptonFeed.Selection selection in market.Selections)
                     {
-                        Horse h = new Horse();
-                        h.Price = selection.Price;
-                        h.Id = int.Parse(selection.Tags.participant);
-                        h.Name = selection.Tags.name;
+                        Horse h = new Horse
+                        {
+                            Price = selection.Price,
+                            Id = int.Parse(selection.Tags.participant),
+                            Name = selection.Tags.name
+                        };
                         retVal.Add(h.Id, h);
                     }
                 }

@@ -35,9 +35,11 @@ namespace dotnet_code_challenge
                 {
                     foreach (CaulfieldFeed.Horse horse in race.Horses.Horse)
                     {
-                        Horse h = new Horse();
-                        h.Id = int.Parse(horse.Number);
-                        h.Name = horse.Name;
+                        Horse h = new Horse
+                        {
+                            Id = int.Parse(horse.Number),
+                            Name = horse.Name
+                        };
                         retVal.Add(h.Id, h);
                     }
 
@@ -46,7 +48,7 @@ namespace dotnet_code_challenge
                         foreach (CaulfieldFeed.Horse horse in price.Horses.Horse)
                         {
                             int id = int.Parse(horse._Number);
-                            retVal[id].Price = float.Parse(horse.Price);
+                            retVal[id].Price = double.Parse(horse.Price);
                         }
                     }
                 }
