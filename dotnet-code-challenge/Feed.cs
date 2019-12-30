@@ -2,8 +2,15 @@
 
 namespace dotnet_code_challenge
 {
+    /// <summary>
+    /// This class provides a common API to support different types of feeds.
+    /// </summary>
     class Feed
     {
+        /// <summary>
+        /// ctor
+        /// </summary>
+        /// <param name="content">Full content that needs to be processed.</param>
         public Feed(in string content)
         {
             caulfieldProcessor = new CaulfieldProcessor();
@@ -20,6 +27,10 @@ namespace dotnet_code_challenge
             }
         }
 
+        /// <summary>
+        /// Get list of horses in ascending order of price.
+        /// </summary>
+        /// <returns>List of horses in ascending order of price.</returns>
         public List<Horse> GetPriceSortedHorseList()
         {
             Dictionary<int, Horse> horses = proc.GetHorses();
@@ -34,6 +45,10 @@ namespace dotnet_code_challenge
             return retVal;
         }
 
+        /// <summary>
+        /// Comparator that compares two horses by price.
+        /// This class should probably be part of the <see cref="Horse"/> but since timelimit is over, I am leaving it here.
+        /// </summary>
         private class CompareByPrice : IComparer<Horse>
         {
             public int Compare(Horse h1, Horse h2)

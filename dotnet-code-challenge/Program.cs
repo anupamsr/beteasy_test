@@ -7,8 +7,16 @@ namespace dotnet_code_challenge
 {
     class Program
     {
+        /// <summary>
+        /// This class should support fetching data from any kind of uri. As of now only http/https are supported.
+        /// </summary>
         public class UriProcessor
         {
+            /// <summary>
+            /// Return async string containing the full content of the passed uri.
+            /// </summary>
+            /// <param name="uri">Resource to fetch.</param>
+            /// <returns>Full content as a string.</returns>
             public async Task<string> Fetch(string uri)
             {
                 using (var httpClient = new HttpClient())
@@ -18,6 +26,10 @@ namespace dotnet_code_challenge
             }
         }
 
+        /// <summary>
+        /// Main program that takes a resource as an argument and prints horses's name in ascending order of price
+        /// </summary>
+        /// <param name="args">Resource location (http/https)</param>
         static void Main(string[] args)
         {
             if (args.Length < 1)
@@ -40,7 +52,7 @@ namespace dotnet_code_challenge
                     catch (AggregateException)
                     {
                         // Try to read it as a file?
-                        // Required as http(s) is inaccissible outside of Australia/NZ
+                        // Required as http(s) is inaccessible outside of Australia/NZ
                         // So I couldn't test the http part
                         fileContent = File.ReadAllText(arg);
                     }

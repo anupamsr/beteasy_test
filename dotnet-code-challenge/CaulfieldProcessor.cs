@@ -4,10 +4,21 @@ using System.Xml.Serialization;
 
 namespace dotnet_code_challenge
 {
+    /// <summary>
+    /// Class to handle Caulfield feed
+    /// </summary>
     public class CaulfieldProcessor : IDataProcessor
     {
+        /// <summary>
+        /// ctor
+        /// </summary>
         public CaulfieldProcessor() { }
 
+        /// <summary>
+        /// Load class is specified independently as we might want to use same processor for different contents.
+        /// </summary>
+        /// <param name="content">The string containing the full feed response (which is in XML format, as specified in <see cref="CaulfieldFeed"/></param>
+        /// <returns>True if successfully loaded, otherwise false.</returns>
         public bool Load(in string content)
         {
             try
@@ -22,10 +33,15 @@ namespace dotnet_code_challenge
             catch
             {
                 //Console.Error.WriteLine("Error parsing as xml");
+                // One will probably use a common logging library here.
             }
             return false;
         }
 
+        /// <summary>
+        /// Get a dictionary of <see cref="Horse"/>s where key is their Id, consolidating all the races.
+        /// </summary>
+        /// <returns>Dictionary of Horses</returns>
         public Dictionary<int, Horse> GetHorses()
         {
             Dictionary<int, Horse> retVal = new Dictionary<int, Horse>();
